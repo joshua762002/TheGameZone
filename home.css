@@ -1,0 +1,279 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('background\ picture/background picture1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    background-color: transparent;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-family: 'Arial', sans-serif;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Navigation Links Animation */
+nav a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    position: relative;
+    transition: color 0.4s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #4946f1;
+    transition: width 0.4s ease;
+}
+
+nav a:hover, nav a:focus {
+    color: #4946f1;
+}
+
+nav a:hover::after, nav a:focus::after {
+    width: 100%;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #85b9E9;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: box-shadow 0.4s ease;
+}
+
+.search-bar:hover, .search-bar:focus-within {
+    box-shadow: 0 0 8px 2px #4946f1;
+}
+
+.search-bar input {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 5px;
+    width: 150px;
+    font-size: 16px;
+    color: #000;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.search-bar button:hover, .search-bar button:focus {
+    color: #4946f1;
+}
+
+/* Nav Button (LOG IN) animation */
+nav button {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background: none;
+    border: 2px solid rgb(255, 255, 255);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 6px 15px;
+    border-radius: 20px;
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+}
+
+nav button:hover, nav button:focus {
+    background-color: #4946f1;
+    color: white;
+    transform: scale(1.1);
+}.login-button {
+    color: rgb(255, 255, 255);
+    background: none;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 6px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+}
+
+.login-button:hover, .login-button:focus {
+    background-color: #4946f1;
+    color: white;
+    transform: scale(1.1);
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    background-color: transparent;
+}
+
+.shop-message {
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.shop-message h2 {
+    font-size: 28px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.shop-message p {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+}
+
+/* Existing styles unchanged above... */
+
+.shop-button {
+    background-color: #1a1f71;
+    color: rgb(255, 255, 255);
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.shop-button:hover, .shop-button:focus {
+    background-color: #3833b4; /* Lighter shade for hover */
+    transform: scale(1.05);
+}
+.shop-button {
+    display: inline-block;
+    background-color: #1a1f71;
+    color: rgb(255, 255, 255);
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none; /* This removes the underline */
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.shop-button:hover, .shop-button:focus {
+    background-color: #3833b4;
+    transform: scale(1.05);
+}
+
+/* See More Button */
+.see-more {
+    background-color: #4946f1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.see-more:hover, .see-more:focus {
+    background-color: #3833b4; /* Darker shade on hover */
+    transform: scale(1.05);
+}
+
+.game-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* bigger min width */
+    gap: 15px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 30px 0;
+}
+
+.game-card {
+    background-color: transparent;
+    width: 100%;
+    padding-top: 80%; /* adjust if you want different aspect ratio */
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.game-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.game-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.game-card:hover img {
+    transform: scale(1.1);
+}
+.see-more {
+    background-color: #4946f1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.4s ease;
+}
+
+.see-more:hover, .see-more:focus {
+    background-color: #3833b4;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+}
