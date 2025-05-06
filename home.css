@@ -1,153 +1,153 @@
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: url('background\ picture/background picture1.jpg') no-repeat center center fixed;
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('background\ picture/background picture1.jpg') no-repeat center center fixed;
+        background-size: cover;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
 
-header, footer {
-    background-color: transparent;
-}
+    header, footer {
+        background-color: transparent;
+    }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-}
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+    }
 
-.logo {
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-    font-family: 'Arial', sans-serif;
-    font-size: 32px;
-    letter-spacing: 1px;
-}
+    .logo {
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+        font-family: 'Arial', sans-serif;
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
 
-nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
 
-/* Navigation Links Animation */
-nav a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 16px;
-    position: relative;
-    transition: color 0.4s ease;
-}
+    /* Navigation Links Animation */
+    nav a {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        position: relative;
+        transition: color 0.4s ease;
+    }
 
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: #4946f1;
-    transition: width 0.4s ease;
-}
+    nav a::after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #4946f1;
+        transition: width 0.4s ease;
+    }
 
-nav a:hover, nav a:focus {
-    color: #4946f1;
-}
+    nav a:hover, nav a:focus {
+        color: #4946f1;
+    }
 
-nav a:hover::after, nav a:focus::after {
-    width: 100%;
-}
+    nav a:hover::after, nav a:focus::after {
+        width: 100%;
+    }
 
-/* Search Bar */
-.search-bar {
-    display: flex;
-    align-items: center;
-    background-color: #85b9E9;
-    border-radius: 20px;
-    padding: 5px 10px;
-    transition: box-shadow 0.4s ease;
-}
+    /* Search Bar */
+    .search-bar {
+        display: flex;
+        align-items: center;
+        background-color: #85b9E9;
+        border-radius: 20px;
+        padding: 5px 10px;
+        transition: box-shadow 0.4s ease;
+    }
 
-.search-bar:hover, .search-bar:focus-within {
-    box-shadow: 0 0 8px 2px #4946f1;
-}
+    .search-bar:hover, .search-bar:focus-within {
+        box-shadow: 0 0 8px 2px #4946f1;
+    }
 
-.search-bar input {
-    border: none;
-    background: none;
-    outline: none;
-    padding: 5px;
-    width: 150px;
-    font-size: 16px;
-    color: #000;
-}
+    .search-bar input {
+        border: none;
+        background: none;
+        outline: none;
+        padding: 5px;
+        width: 150px;
+        font-size: 16px;
+        color: #000;
+    }
 
-.search-bar button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    color: #000;
-    transition: color 0.3s ease;
-}
+    .search-bar button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        color: #000;
+        transition: color 0.3s ease;
+    }
 
-.search-bar button:hover, .search-bar button:focus {
-    color: #4946f1;
-}
+    .search-bar button:hover, .search-bar button:focus {
+        color: #4946f1;
+    }
 
-/* Nav Button (LOG IN) animation */
-nav button {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    background: none;
-    border: 2px solid rgb(255, 255, 255);
-    font-size: 16px;
-    cursor: pointer;
-    padding: 6px 15px;
-    border-radius: 20px;
-    transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
-}
+    /* Nav Button (LOG IN) animation */
+    nav button {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        background: none;
+        border: 2px solid rgb(255, 255, 255);
+        font-size: 16px;
+        cursor: pointer;
+        padding: 6px 15px;
+        border-radius: 20px;
+        transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+    }
 
-nav button:hover, nav button:focus {
-    background-color: #4946f1;
-    color: white;
-    transform: scale(1.1);
-}.login-button {
-    color: rgb(255, 255, 255);
-    background: none;
-    border: 2px solid rgb(255, 255, 255);
-    padding: 6px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 16px;
-    text-decoration: none;
-    transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
-}
+    nav button:hover, nav button:focus {
+        background-color: #4946f1;
+        color: white;
+        transform: scale(1.1);
+    }.login-button {
+        color: rgb(255, 255, 255);
+        background: none;
+        border: 2px solid rgb(255, 255, 255);
+        padding: 6px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 16px;
+        text-decoration: none;
+        transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+    }
 
-.login-button:hover, .login-button:focus {
-    background-color: #4946f1;
-    color: white;
-    transform: scale(1.1);
-}
+    .login-button:hover, .login-button:focus {
+        background-color: #4946f1;
+        color: white;
+        transform: scale(1.1);
+    }
 
 
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 20px;
-    background-color: transparent;
-}
+    main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 20px;
+        background-color: transparent;
+    }
 
 .shop-message {
     text-align: center;
