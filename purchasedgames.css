@@ -169,7 +169,8 @@
     cursor: pointer;
   }
   
-  #purchased-container {
+/* Container */
+#purchased-container {
     max-width: 1200px;
     margin: 40px auto;
     padding: 20px;
@@ -178,99 +179,97 @@
     gap: 20px;
   }
   
+  /* Individual Game Card */
   .purchased-item {
     display: flex;
     align-items: center;
-    background-color: #ffffffdd;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    padding: 15px 20px;
-    min-height: 150px;
-    overflow: hidden;
-    transition: box-shadow 0.3s ease;
+    background: linear-gradient(145deg, #9d92e9, #e0e8f7);
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    min-height: 160px;
   }
   
   .purchased-item:hover {
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
   }
   
-  /* Game image */
+  /* Game Image */
   .purchased-item img {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-right: 20px;
+    border-radius: 12px;
+    margin-right: 24px;
+    border: 2px solid #e5e7eb;
     flex-shrink: 0;
   }
   
-  /* Game text details */
+  /* Game Info */
   .purchased-details {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: 6px;
-    column-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 8px 20px;
     width: 100%;
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 15px;
-    color: #374151;
+    color: #1f2937;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
   .purchased-details h3 {
     grid-column: span 3;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 6px;
-    color: #1f2937;
+    color: #111827;
   }
   
   .purchased-details p {
     margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
   }
   
-  .purchased-details .price {
+  .price {
     color: #16a34a;
     font-weight: 600;
   }
   
-  .purchased-details .rating {
+  .rating {
     color: #f59e0b;
   }
   
-  .purchased-details .age-limit {
+  .age-limit {
     color: #ef4444;
   }
   
-  .purchased-details .purchase-date {
+  .purchase-date {
+    grid-column: span 3;
     font-size: 14px;
     color: #6b7280;
-    grid-column: span 3;
-    margin-top: 6px;
+    margin-top: 10px;
+    font-style: italic;
   }
   
-  /* Responsive for smaller screens */
+  /* Responsive Design */
   @media (max-width: 768px) {
     .purchased-item {
       flex-direction: column;
-      align-items: center;
       text-align: center;
     }
   
     .purchased-item img {
-      margin-bottom: 15px;
       margin-right: 0;
+      margin-bottom: 15px;
     }
   
     .purchased-details {
       grid-template-columns: 1fr;
-      gap: 6px;
     }
   
-    .purchased-details h3 {
-      grid-column: span 1;
-    }
-  
-    .purchased-details .purchase-date {
+    .purchased-details h3,
+    .purchase-date {
       grid-column: span 1;
     }
   }
