@@ -16,6 +16,7 @@
                 <button>🔍</button>
             </div>
             <a href="wishlist.html">WISH LIST</a>
+            <a href="purchasedgames.html">PURCHASED GAMES</a>
             <a href="about us.html">ABOUT US</a>
             <a href="home1.html" class="login-button">HOME</a>
 
@@ -28,8 +29,17 @@
   <div class="center-containers">
       <h4> Your one-stop shop for exciting online games. Explore our collection of MMORPGs, MOBAs, tactical shooters, and RTS games. Start your adventure today!
           </h4>
-
+  
   </div>
+  <div id="purchase-popup" class="popup-overlay">
+    <div class="popup-box">
+      <h2>✅ Purchase Successful</h2>
+      <img id="popup-image" src="" alt="Game" />
+      <h3 id="popup-title"></h3>
+      <p id="popup-price"></p>
+    </div>
+  </div>
+  
     <div class="shop-container">
         <!-- Game 1 -->
         <div class="shop-box">
@@ -41,7 +51,8 @@
           <p class="age-limit">Age: 16+</p>
           <div class="buttons">
             <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-            <button class="buy-btn">Buy Now</button>
+            <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
+
           </div>
         </div>
         
@@ -56,7 +67,7 @@
           <p class="age-limit">Age: 16+</p>
           <div class="buttons">
             <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-            <button class="buy-btn">Buy Now</button>
+            <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
           </div>
         </div>
       
@@ -70,7 +81,7 @@
           <p class="age-limit">Age: 10+</p>
           <div class="buttons">
             <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-            <button class="buy-btn">Buy Now</button>
+            <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
           </div>
         </div>
       
@@ -84,7 +95,7 @@
           <p class="age-limit">Age: 16+</p>
           <div class="buttons">
             <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-            <button class="buy-btn">Buy Now</button>
+            <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
           </div>
         </div>
       
@@ -98,7 +109,7 @@
           <p class="age-limit">Age: 13+</p>
           <div class="buttons">
             <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-            <button class="buy-btn">Buy Now</button>
+            <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
           </div>
         </div>
       
@@ -112,7 +123,7 @@
           <p class="age-limit">Age: 18+</p>
           <div class="buttons">
             <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-            <button class="buy-btn">Buy Now</button>
+            <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
           </div>
         </div>
       
@@ -126,7 +137,7 @@
           <p class="age-limit">Age: 9+</p>
           <div class="buttons">
             <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-            <button class="buy-btn">Buy Now</button>
+            <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
           </div>
         </div>
       
@@ -140,7 +151,7 @@
           <p class="age-limit">Age: 15+</p>
           <div class="buttons">
             <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-            <button class="buy-btn">Buy Now</button>
+            <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
           </div>
         </div>
       
@@ -154,7 +165,7 @@
           <p class="age-limit">Age: 14+</p>
           <div class="buttons">
             <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-            <button class="buy-btn">Buy Now</button>
+            <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
           </div>
         </div>
          <!-- Game 10 -->
@@ -167,7 +178,7 @@
             <p class="age-limit">Age: 14+</p>
             <div class="buttons">
               <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-              <button class="buy-btn">Buy Now</button>
+              <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
             </div>
           </div>
        <!-- Game 11 -->
@@ -180,7 +191,7 @@
         <p class="age-limit">Age: 18+</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div>
        <!-- Game 12 -->
@@ -193,7 +204,7 @@
         <p class="age-limit">Age: 16</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div>
        <!-- Game 13 -->
@@ -206,7 +217,7 @@
         <p class="age-limit">Age: 14+</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div>
        <!-- Game 14 -->
@@ -219,7 +230,7 @@
         <p class="age-limit">Age: 12+</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div>
        <!-- Game 15 -->
@@ -232,7 +243,7 @@
         <p class="age-limit">Age: 8+</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div>
        <!-- Game 16 -->
@@ -245,7 +256,7 @@
         <p class="age-limit">Age: 14+</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div>
        <!-- Game 17 -->
@@ -258,7 +269,7 @@
         <p class="age-limit">Age: 6+</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div>
        <!-- Game 18 -->
@@ -271,7 +282,7 @@
         <p class="age-limit">Age: 11+</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div>
        <!-- Game 19 -->
@@ -284,7 +295,7 @@
         <p class="age-limit">Age: 11+</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div>
        <!-- Game 20 -->
@@ -297,7 +308,7 @@
         <p class="age-limit">Age: 14+</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div>
        <!-- Game 21 -->
@@ -310,7 +321,7 @@
         <p class="age-limit">Age: 12+</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div>
        <!-- Game 22 -->
@@ -323,7 +334,7 @@
         <p class="age-limit">Age: 18+</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div> <!-- Game 23 -->
       <div class="shop-box">
@@ -335,7 +346,7 @@
         <p class="age-limit">Age: 14+</p>
         <div class="buttons">
           <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-          <button class="buy-btn">Buy Now</button>
+          <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
         </div>
       </div>
       
@@ -349,10 +360,18 @@
           <p class="age-limit">Age: 10+</p>
           <div class="buttons">
             <button class="wishlist-btn" onclick="addToWishlist(this)">♡ Add to Wishlist</button>
-            <button class="buy-btn">Buy Now</button>
+            <button class="buy-btn" onclick="buyGame(this)">Buy Now</button>
           </div>
         </div>
       </div>
+      <div id="purchase-popup" class="popup">
+        <img id="popup-image" src="" alt="">
+        <h2 id="popup-title"></h2>
+        <p id="popup-price"></p>
+        <p id="popup-date"></p>
+        <p>🎉 Thank you for buying this game!</p>
+      </div>
+      
       
       <script src="shopnow.js"></script>
     
