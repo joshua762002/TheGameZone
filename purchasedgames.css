@@ -237,7 +237,8 @@
   }
   
   .rating {
-    color: #f59e0b;
+    color: #0c0801;
+
   }
   
   .age-limit {
@@ -272,5 +273,19 @@
     .purchase-date {
       grid-column: span 1;
     }
+  }
+  /* Card Number Styling */
+.card-number {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    background-color: #4879da;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-top: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block;
   }
   
