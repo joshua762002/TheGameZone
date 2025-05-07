@@ -70,7 +70,7 @@ loginForm.addEventListener("submit", (e) => {
   // Check if the entered credentials match the stored ones
   if (email === storedEmail && password === storedPass) {
     localStorage.setItem("isLoggedIn", "true");
-    window.location.href = "home1.html"; // Redirect to home page
+    window.location.href = "shopnow.html"; // Redirect to home page
   } else {
     alert("Invalid credentials. Try again.");
   }

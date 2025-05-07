@@ -7,6 +7,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
+
 body {
   background: url('background picture/background picture1.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -15,6 +16,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
+  background-color: #00000000; /* Optional: for contrast */
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;   /* Center horizontally */
+  align-items: flex-start;   /* Align to top vertically */
+  height: 100vh;
+  padding-top: 40px;         /* Space from the very top */
+}
+
+h2 {
+  font-weight: 400;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  text-align: center;
+  margin: 0; /* Remove default margins */
 }
 
 header {

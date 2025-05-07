@@ -15,3 +15,17 @@ document.querySelector(".shop-button").addEventListener("click", (e) => {
     e.preventDefault();  // Prevent default anchor behavior
     checkLoginStatus();
 });
+
+  function addToWishlist() {
+    const item = {
+      title: document.getElementById('game-title').innerText,
+      image: document.getElementById('game-img').src
+    };
+
+    // Store item in localStorage
+    localStorage.setItem('wishlistItem', JSON.stringify(item));
+
+    // Redirect to wishlist page
+    window.location.href = "wishlist.html";
+  }
+
