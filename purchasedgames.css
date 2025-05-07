@@ -1,155 +1,146 @@
+/* Reset some basic styles */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
   }
-
+  
+  /* Body Styling */
   body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: url('background\ picture/background picture1.jpg') no-repeat center center fixed;
-      background-size: cover;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('background picture/background picture1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
-
+  
+  /* Header and Footer Styling */
   header, footer {
-      background-color: transparent;
+    background-color: transparent;
   }
-
+  
   header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
   }
-
+  
   .logo {
-      font-weight: bold;
-      color: rgb(255, 255, 255);
-      font-family: 'Arial', sans-serif;
-      font-size: 32px;
-      letter-spacing: 1px;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    font-size: 32px;
+    letter-spacing: 1px;
   }
-
+  
   nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
-
+  
   /* Navigation Links Animation */
   nav a {
-      text-decoration: none;
-      color: rgb(255, 255, 255);
-      font-size: 16px;
-      position: relative;
-      transition: color 0.4s ease;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.4s ease;
   }
-
+  
   nav a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #4946f1;
-      transition: width 0.4s ease;
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #4946f1;
+    transition: width 0.4s ease;
   }
-
+  
   nav a:hover, nav a:focus {
-      color: #4946f1;
+    color: #4946f1;
   }
-
+  
   nav a:hover::after, nav a:focus::after {
-      width: 100%;
+    width: 100%;
   }
-
+  
   /* Search Bar */
   .search-bar {
-      display: flex;
-      align-items: center;
-      background-color: #85b9E9;
-      border-radius: 20px;
-      padding: 5px 10px;
-      transition: box-shadow 0.4s ease;
+    display: flex;
+    align-items: center;
+    background-color: #85b9e9;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: box-shadow 0.4s ease;
   }
-
+  
   .search-bar:hover, .search-bar:focus-within {
-      box-shadow: 0 0 8px 2px #4946f1;
+    box-shadow: 0 0 8px 2px #4946f1;
   }
-
+  
   .search-bar input {
-      border: none;
-      background: none;
-      outline: none;
-      padding: 5px;
-      width: 150px;
-      font-size: 16px;
-      color: #000;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 5px;
+    width: 150px;
+    font-size: 16px;
+    color: #000;
   }
-
+  
   .search-bar button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      color: #000;
-      transition: color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+    transition: color 0.3s ease;
   }
-
+  
   .search-bar button:hover, .search-bar button:focus {
-      color: #4946f1;
+    color: #4946f1;
   }
-
-  /* Nav Button (LOG IN) animation */
-  nav button {
-      text-decoration: none;
-      color: rgb(255, 255, 255);
-      background: none;
-      border: 2px solid rgb(255, 255, 255);
-      font-size: 16px;
-      cursor: pointer;
-      padding: 6px 15px;
-      border-radius: 20px;
-      transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+  
+  /* Login Button */
+  nav button, .login-button {
+    text-decoration: none;
+    color: #ffffff;
+    background: none;
+    border: 2px solid #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 6px 15px;
+    border-radius: 20px;
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
   }
-
-  nav button:hover, nav button:focus {
-      background-color: #4946f1;
-      color: white;
-      transform: scale(1.1);
-  }.login-button {
-      color: rgb(255, 255, 255);
-      background: none;
-      border: 2px solid rgb(255, 255, 255);
-      padding: 6px 15px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 16px;
-      text-decoration: none;
-      transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
-  }
-
+  
+  nav button:hover, nav button:focus,
   .login-button:hover, .login-button:focus {
-      background-color: #4946f1;
-      color: white;
-      transform: scale(1.1);
+    background-color: #4946f1;
+    color: white;
+    transform: scale(1.1);
   }
-
-
+  
+  /* Main Content */
   main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 50px 20px;
-      background-color: transparent;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    background-color: transparent;
   }
-/* Pop-up styling */
-.popup {
+  
+  /* Popup Styling */
+  .popup {
     display: none; /* Hidden by default */
     position: fixed;
     left: 0;
@@ -160,146 +151,127 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-}
-
-.popup-content {
+  }
+  
+  .popup-content {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
     position: relative;
-}
-
-.close {
+  }
+  
+  .close {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 20px;
     cursor: pointer;
-}
-/* You can place this in home.css */
-#welcomePopup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .popup-box {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-  }
-  /* Reset some basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
   }
   
-  /* Purchased Container */
   #purchased-container {
-    max-width: 960px;
-    margin: 50px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
   
-  /* Title */
-  .section-title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #1f2937;
-    margin-bottom: 25px;
-    text-align: center;
+  .purchased-item {
+    display: flex;
+    align-items: center;
+    background-color: #ffffffdd;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    min-height: 150px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
   }
   
-  /* Table Wrapper for Responsiveness */
-  .table-wrapper {
-    overflow-x: auto;
+  .purchased-item:hover {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
   }
   
-  /* Table */
-  #purchased-table {
+  /* Game image */
+  .purchased-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+    flex-shrink: 0;
+  }
+  
+  /* Game text details */
+  .purchased-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 6px;
+    column-gap: 20px;
     width: 100%;
-    border-collapse: collapse;
-    min-width: 720px;
-    background-color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    color: #374151;
   }
   
-  /* Table Header */
-  #purchased-table thead {
-    background-color: #111827;
-    color: #f9fafb;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
+  .purchased-details h3 {
+    grid-column: span 3;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1f2937;
   }
   
-  /* Header and Cell Styling */
-  #purchased-table th,
-  #purchased-table td {
-    padding: 16px 20px;
-    text-align: left;
-    border-bottom: 1px solid #e5e7eb;
+  .purchased-details p {
+    margin: 0;
   }
   
-  /* Table Rows */
-  #purchased-table tbody tr:hover {
-    background-color: #f0f4f8;
-    transition: background 0.2s ease;
-  }
-  
-  /* Alternate Row Color */
-  #purchased-table tbody tr:nth-child(even) {
-    background-color: #fafafa;
-  }
-  
-  /* Price Styling */
-  #purchased-table td:nth-child(3) {
+  .purchased-details .price {
     color: #16a34a;
-    font-weight: bold;
+    font-weight: 600;
   }
   
-  /* Purchase Date Styling */
-  #purchased-table td:last-child {
+  .purchased-details .rating {
+    color: #f59e0b;
+  }
+  
+  .purchased-details .age-limit {
+    color: #ef4444;
+  }
+  
+  .purchased-details .purchase-date {
     font-size: 14px;
     color: #6b7280;
+    grid-column: span 3;
+    margin-top: 6px;
   }
   
-  /* Game Info Cell (image + name) */
-.game-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+  /* Responsive for smaller screens */
+  @media (max-width: 768px) {
+    .purchased-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
   
-  /* Game Image Styling */
-  .game-img {
-    width: 48px;
-    height: 48px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
+    .purchased-item img {
+      margin-bottom: 15px;
+      margin-right: 0;
+    }
   
-  /* Game Title */
-  .game-title {
-    font-weight: 500;
-    color: #1f2937;
-  }
-  .purchase-date {
-    font-weight: 500;
-    color: #2d3436;
-    margin-top: 8px;
-  }
+    .purchased-details {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
   
+    .purchased-details h3 {
+      grid-column: span 1;
+    }
+  
+    .purchased-details .purchase-date {
+      grid-column: span 1;
+    }
+  }
   

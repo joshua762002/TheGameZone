@@ -69,3 +69,33 @@ function handleBuyNow(button) {
     window.location.href = 'purchasedgames.html';
   }, 2500);
 }
+window.onload = function () {
+    const container = document.getElementById('purchased-container');
+    const purchased = JSON.parse(localStorage.getItem('purchased')) || [];
+  
+    if (purchased.length === 0) {
+      container.innerHTML = "<p style='text-align:center; font-size:18px;'>You haven't purchased any games yet.</p>";
+      return;
+    }
+  
+    purchased.forEach((item) => {
+      const div = document.createElement('div');
+      div.className = 'purchased-item';
+  
+      div.innerHTML = `
+  <img src="${item.image}" alt="${item.title}">
+  <div class="purchased-details">
+    <h3>${item.title}</h3>
+    <p><strong>Genre:</strong> ${item.genre}</p>
+    <p class="rating"><strong>Rating:</strong> ${item.rating}</p>
+    <p class="price"><strong>Price:</strong> ${item.price}</p>
+    <p class="age-limit"><strong>Age:</strong> ${item.age}</p>
+    <p class="purchase-date">📅 Purchased on: ${item.date}</p>
+  </div>
+`;
+
+  
+      container.appendChild(div);
+    });
+  };
+  
