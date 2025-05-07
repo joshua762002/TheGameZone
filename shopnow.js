@@ -1,25 +1,24 @@
-function addToWishlist() {
-    const item = {
-      id: "game-001",
-      title: document.querySelector('.game-title').innerText,
-      image: document.querySelector('.game-image').src,
-      genre: document.querySelector('.game-genre').innerText,
-      rating: document.querySelector('.rating').innerText,
-      price: document.querySelector('.price').innerText,
-      age: document.querySelector('.age-limit').innerText
-    };
-  
+function addToWishlist(button) {
+    const shopBox = button.closest('.shop-box');
+    const title = shopBox.querySelector('.game-title').innerText;
+    const image = shopBox.querySelector('img').getAttribute('src');
+    const genre = shopBox.querySelector('.game-genre').innerText;
+    const rating = shopBox.querySelector('.rating').innerText;
+    const price = shopBox.querySelector('.price').innerText;
+    const age = shopBox.querySelector('.age-limit').innerText;
+    const id = title.toLowerCase().replace(/\s+/g, '-'); // unique ID based on title (this will be the same for identical names, consider making it more unique like using a random ID or a combination of title and another unique property)
+
+    const item = { id, title, image, genre, rating, price, age };
+
     let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-  
-    // Avoid duplicates
-    const exists = wishlist.find(i => i.id === item.id);
-    if (exists) {
-      alert("This item is already in your wishlist.");
-      return;
+
+    // Check if the item already exists in the wishlist
+    const exists = wishlist.some(product => product.id === item.id);
+    if (!exists) {
+      wishlist.push(item);
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      alert(`${title} added to your wishlist!`);
+    } else {
+      alert(`${title} is already in your wishlist.`);
     }
-  
-    wishlist.push(item);
-    localStorage.setItem('wishlist', JSON.stringify(wishlist));
-    alert(`${item.title} added to wishlist!`);
-  }
-  
+}
