@@ -82,7 +82,7 @@
       width: 100%;
   }
 
-  /* Search Bar */
+    /* Search Bar */
   .search-bar {
       display: flex;
       align-items: center;
@@ -118,7 +118,6 @@
   .search-bar button:hover, .search-bar button:focus {
       color: #4946f1;
   }
-
   /* Nav Button (LOG IN) animation */
   nav button {
       text-decoration: none;
@@ -164,3 +163,158 @@
       padding: 50px 20px;
       background-color: transparent;
   }
+  /* STLYE CONATINER CENTER*/
+  .center-container {
+    display: flex;
+    font-style: italic;
+    justify-content: center;
+    align-items: center;
+    height: 40vh; /* Adjust this if needed */
+    text-align: center;
+  }
+  /* Header Style */
+  h1 {
+    text-align: center;
+    font-weight: 00; /* Slightly less bold for a professional look */
+    color: #fff; /* Using hex color for better consistency */
+    font-size: 4.5rem; /* Adjusting font size for better readability */
+    line-height: 1.4; /* Adjusts line spacing for better legibility */
+    margin-top: 10px; /* Adds space at the top */
+    margin-bottom: 20px; /* Adds space at the bottom */
+    font-family: 'Roboto', sans-serif; /* Modern sans-serif font for clean and professional look */
+    letter-spacing: 1px; /* Adds some space between letters for readability */
+    text-transform: capitalize; /* Capitalizes the first letter of each word for a neat appearance */
+}
+  
+  /* Wishlist Container */
+  #wishlist-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 30px 20px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    max-width: 1200px;
+    margin: 0 auto 40px;
+  }
+  
+  /* Wishlist Item */
+  .wishlist-item {
+    background-color: #5c6ee3;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(124, 139, 245, 0.15);
+    width: 260px;
+    text-align: center;
+    padding: 25px 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .wishlist-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 35px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Image Styling */
+  .wishlist-item img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 18px;
+  }
+  
+  /* Game Title */
+  .wishlist-item .game-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px 0 6px;
+    color: #ffffff;
+  }
+  
+  /* Game Details */
+  .wishlist-item .game-genre,
+  .wishlist-item .age-limit {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 6px;
+  }
+  
+  /* Rating */
+  .wishlist-item .rating {
+    color: #ffc107;
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  /* Price */
+  .wishlist-item .price {
+    font-size: 19px;
+    font-weight: 600;
+    color: #28d17c;
+    margin: 12px 0;
+  }
+  
+  /* Buttons Container */
+  .wishlist-item .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  
+  /* Buttons */
+  .wishlist-item .wishlist-btn,
+  .wishlist-item .remove-wishlist-btn,
+  .wishlist-item .buy-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* Add to Wishlist Button */
+  .wishlist-item .wishlist-btn {
+    background-color: #0e74e9;
+    color: #fff;
+  }
+  .wishlist-item .wishlist-btn:hover {
+    background-color: #3b94f4;
+  }
+  
+  /* Remove from Wishlist Button */
+  .wishlist-item .remove-wishlist-btn {
+    background-color: #ff5f5f;
+    color: #fff;
+  }
+  .wishlist-item .remove-wishlist-btn:hover {
+    background-color: #e04444;
+  }
+  
+  /* Buy Button */
+  .wishlist-item .buy-btn {
+    background-color: #1c87ff;
+    color: #fff;
+  }
+  .wishlist-item .buy-btn:hover {
+    background-color: #1464c4;
+  }
+  
+  /* Responsive Tweaks */
+  @media (max-width: 768px) {
+    .wishlist-item {
+      width: 100%;
+      max-width: 90%;
+    }
+  }
+  /* Smooth fade-out effect */
+.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  

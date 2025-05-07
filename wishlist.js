@@ -24,20 +24,27 @@ window.onload = function () {
         `;
 
         div.querySelector('.remove-btn').addEventListener('click', function () {
-            removeFromWishlist(item.id);
+            removeFromWishlist(item.id, div);
         });
 
         container.appendChild(div);
     });
 };
 
-// Function to remove an item from the wishlist
-function removeFromWishlist(id) {
+// Function to remove an item from the wishlist with animation
+function removeFromWishlist(id, div) {
     let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
+    // Filter out the item with matching ID
     wishlist = wishlist.filter(item => item.id !== id);
 
+    // Update localStorage
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
 
-    location.reload(); // Reload to update the view
+    // Animate the item fade-out and removal
+    div.classList.add('fade-out');
+
+    setTimeout(() => {
+        div.remove();  // Remove the item after the fade-out effect
+    }, 400); // Duration should match the CSS transition
 }

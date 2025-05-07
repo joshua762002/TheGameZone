@@ -38,6 +38,7 @@ h4 {
 
 .center-container {
     display: flex;
+    font-style: italic;
     justify-content: center;
     align-items: center;
     height: 20vh; /* Adjust this if needed */
