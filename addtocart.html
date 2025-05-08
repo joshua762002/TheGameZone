@@ -25,14 +25,22 @@
         </nav>
     </header>
     <main>
-        <div class="cart-wrapper">
-            <h1>Your Cart</h1>
-            <div id="cart-container" class="cart-grid"></div>
-            <div class="total-section">
-              <strong>Total: $<span id="total-price">0.00</span></strong>
-            </div>
+        <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="cart-wrapper">
+    <h1 class="cart-title">🛒 Your Shopping Cart</h1>
+    <div id="cart-container" class="cart-container"></div>
 
-    </main>
+    <div class="cart-summary">
+      <p id="cart-total" class="total-display"></p>
+      <button id="checkout-btn" class="checkout-button">Checkout</button>
+      
+    </div>
+  </div>
     
 
     <script src="addtocart.js"></script>
