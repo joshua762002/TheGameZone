@@ -22,3 +22,56 @@ function addToWishlist(button) {
       alert(`${title} is already in your wishlist.`);
     }
 }
+function buyGame(button) {
+    const card = button.closest('.shop-box');
+    button.disabled = true;
+    button.innerText = "Processing...";
+  
+    // Get today's date
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-PH', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  
+    // Create the game object for the purchased item
+    const game = {
+      id: Date.now(),
+      image: card.querySelector('.game-image').src,
+      title: card.querySelector('.game-title').textContent,
+      genre: card.querySelector('.game-genre').textContent,
+      rating: card.querySelector('.rating').textContent,
+      price: card.querySelector('.price').textContent,
+      age: card.querySelector('.age-limit').textContent,
+      date: formattedDate
+    };
+  
+    // Retrieve existing purchases and add the new game
+    let purchases = JSON.parse(localStorage.getItem('purchased')) || [];
+    purchases.push(game);
+    localStorage.setItem('purchased', JSON.stringify(purchases));
+  
+    // Show the purchase confirmation popup
+    showPurchasePopup(game);
+  
+    // Redirect to the purchased games page after 3 seconds
+    setTimeout(() => {
+      window.location.href = 'purchasedgames.html';
+    }, 3000);
+  }
+  
+  function showPurchasePopup(game) {
+    const popup = document.getElementById('purchase-popup');
+    document.getElementById('popup-image').src = game.image;
+    document.getElementById('popup-title').textContent = game.title;
+    document.getElementById('popup-price').textContent = `Price: ${game.price}`;
+    document.getElementById('popup-date').textContent = `📅 Purchased on: ${game.date}`;
+  
+    popup.classList.add('show');
+  
+    setTimeout(() => {
+      popup.classList.remove('show');
+    }, 2500);
+  }
+  

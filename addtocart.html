@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TheGameZone Homepage</title>
-    <link rel="stylesheet" href="wishlist.css">
+    <link rel="stylesheet" href="addtocart.css">
 </head>
+
 <body>
     <header>
         <div class="logo">TheGameZone</div>
@@ -20,16 +21,22 @@
             <a href="about us.html">ABOUT US</a>
             <a href="addtocart.html">ADD TO CART</a>
             <a href="home1.html" class="login-button">HOME</a>
+
         </nav>
     </header>
-    <div class="center-container">
-        <h1> 🎮YOUR WISHLIST
-           </h1>
-  
-    </div>
-    <div id="wishlist-container"></div>
+    <main>
+        <div class="cart-wrapper">
+            <h1>Your Cart</h1>
+            <div id="cart-container" class="cart-grid"></div>
+            <div class="total-section">
+              <strong>Total: $<span id="total-price">0.00</span></strong>
+            </div>
+
+    </main>
     
-    <script src="wishlist.js" defer></script>
-   
+
+    <script src="addtocart.js"></script>
+
+    
 </body>
 </html>
