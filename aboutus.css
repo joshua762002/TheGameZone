@@ -25,11 +25,13 @@
   }
 
   .logo {
-      font-weight: bold;
-      color: rgb(255, 255, 255);
-      font-family: 'Arial', sans-serif;
-      font-size: 32px;
-      letter-spacing: 1px;
+    padding: 10px; /* optional spacing around the logo */
+  }
+  
+  .logo img {
+    width: 200px;  /* adjust this value to make it bigger */
+    height: auto;  /* keeps aspect ratio intact */
+    display: block;
   }
 
   nav {
