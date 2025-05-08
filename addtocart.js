@@ -78,8 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     continueBtn.addEventListener('click', () => {
-      window.location.href = 'products.html'; // Update to your products page
+      window.location.href = 'purchased.html'; // Update to your products page
     });
   }
 });
 
+ 

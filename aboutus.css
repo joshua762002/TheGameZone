@@ -148,155 +148,144 @@
       padding: 50px 20px;
       background-color: transparent;
  }
+body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+    }
 
- body {
-  background-color: #101010;
-  color: #f0f0f0;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-}
+    .about-section {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 20px;
+    }
 
-.cart-wrapper {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-}
+    .about-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      letter-spacing: 1px;
+      color: #00d8ff;
+    }
 
-/* Cart Title */
-.cart-title {
-  text-align: center;
-  color: #00e676;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-}
+    .team-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
 
-/* Cart Container Layout */
-#cart-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 10px;
-}
+    .team-member {
+      flex: 1 1 30%;
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 216, 255, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-/* Individual Cart Item */
-.cart-item {
-  background-color: #27445f;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(49, 8, 197, 0.6);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
+    .team-member:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(0, 216, 255, 0.3);
+    }
 
-/* Image Styling */
-.item-image {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
+    .member-name {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+      color: #ffffff;
+    }
 
-/* Item Text Content */
-.item-details {
-  padding: 15px;
-}
+    .member-role {
+      font-size: 1rem;
+      color: #00d8ff;
+      margin-bottom: 15px;
+    }
 
-.item-details h3 {
-  margin: 0 0 10px;
-  font-size: 1.3rem;
-  color: #00e676;
-}
+    .member-bio {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #cfcfcf;
+    }
 
-.item-details p {
-  margin: 5px 0;
-}
-
-.price {
-  font-weight: bold;
-  color: #00e676;
-  margin-top: 10px;
-}
-
-/* Cart Summary and Buttons */
-.cart-summary {
-  margin-top: 30px;
-  text-align: right;
-}
-
-#cart-total {
-  font-size: 1.6rem;
-  margin-bottom: 15px;
-  color: #00e676;
-}
-
-/* Buttons */
-#checkout-btn,
-#continue-btn {
-  background-color: #00b894;
-  border: none;
-  padding: 12px 28px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  margin: 10px 5px 0 0;
-}
-
-#checkout-btn:hover,
-#continue-btn:hover {
-  background-color: #019270;
-  transform: scale(1.03);
-}
-
-/* Responsive Layout */
-@media (max-width: 768px) {
-  #cart-container {
-    grid-template-columns: 1fr;
-  }
-
-  .item-image {
-    height: 200px;
-  }
-
-  .cart-summary {
-    text-align: center;
-  }
-}
-
-  
- /* Base Button Styles */
-#checkout-btn,
-#continue-btn {
-  padding: 0.75rem 1.8rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  margin: 0.5rem;
-}
-
-/* Checkout Button */
-#checkout-btn {
-  background-color: #28a745;
-  color: #fff;
-}
-
-#checkout-btn:hover {
-  background-color: #218838;
-  transform: scale(1.03);
-}
-
-/* Continue Shopping Button */
-#continue-btn {
-  background-color: #007bff;
-  color: #fff;
-}
-
-#continue-btn:hover {
-  background-color: #0056b3;
-  transform: scale(1.03);
-}
+    @media screen and (max-width: 900px) {
+      .team-member {
+        flex: 1 1 100%;
+      }
+    }body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+      }
+      
+      .about-section {
+        max-width: 1200px;
+        margin: 80px auto;
+        padding: 20px;
+      }
+      
+      .about-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-style: italic;
+        margin-bottom: 50px;
+        letter-spacing: 1px;
+        color: #3e68c4;
+      }
+      
+      .team-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      
+      .team-member {
+        flex: 1 1 30%;
+        background-color: #1f1e1e;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0, 216, 255, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+      }
+      
+      .team-member:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 25px rgba(0, 216, 255, 0.3);
+      }
+      
+      .member-photo {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        border: 3px solid #00d8ff;
+      }
+      
+      .member-name {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+        color: #ffffff;
+      }
+      
+      .member-role {
+        font-size: 1rem;
+        color: #00d8ff;
+        margin-bottom: 15px;
+      }
+      
+      .member-bio {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #cfcfcf;
+      }
+      
+      @media screen and (max-width: 900px) {
+        .team-member {
+          flex: 1 1 100%;
+        }
+      }
+      

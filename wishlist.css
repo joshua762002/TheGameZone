@@ -278,16 +278,16 @@
   }
   
   .wishlist-item {
-    border: 1px solid #ccc;
+    border: 1px solid #070b4b;
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 10px;
-    background-color: #fff;
+    background-color:#667dcc;
     transition: box-shadow 0.3s ease;
 }
 
 .wishlist-item:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0);
 }
 
 .item-image {
