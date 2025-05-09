@@ -41,6 +41,6 @@ if (email === storedEmail && password === storedPass) {
     sessionStorage.clear(); // Optional: clear session storage
   
     // Redirect to homepage or login page
-    window.location.href = 'home.html';
+    window.location.href = 'index.html';
   }
   
