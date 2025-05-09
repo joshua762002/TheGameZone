@@ -85,7 +85,7 @@
   }
 
     /* Search Bar */
-  .search-bar {
+    .search-bar {
       display: flex;
       align-items: center;
       background-color: #85b9E9;
@@ -93,11 +93,11 @@
       padding: 5px 10px;
       transition: box-shadow 0.4s ease;
   }
-
+  
   .search-bar:hover, .search-bar:focus-within {
       box-shadow: 0 0 8px 2px #4946f1;
   }
-
+  
   .search-bar input {
       border: none;
       background: none;
@@ -107,54 +107,77 @@
       font-size: 16px;
       color: #000;
   }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #85b9E9;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: box-shadow 0.4s ease;
+}
 
-  .search-bar button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      color: #000;
-      transition: color 0.3s ease;
-  }
+.search-bar:hover, .search-bar:focus-within {
+    box-shadow: 0 0 8px 2px #4946f1;
+}
 
-  .search-bar button:hover, .search-bar button:focus {
-      color: #4946f1;
-  }
-  /* Nav Button (LOG IN) animation */
-  nav button {
-      text-decoration: none;
-      color: rgb(255, 255, 255);
-      background: none;
-      border: 2px solid rgb(255, 255, 255);
-      font-size: 16px;
-      cursor: pointer;
-      padding: 6px 15px;
-      border-radius: 20px;
-      transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
-  }
+.search-bar input {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 5px;
+    width: 150px;
+    font-size: 16px;
+    color: #000;
+}
 
-  nav button:hover, nav button:focus {
-      background-color: #4946f1;
-      color: white;
-      transform: scale(1.1);
-  }.login-button {
-      color: rgb(255, 255, 255);
-      background: none;
-      border: 2px solid rgb(255, 255, 255);
-      padding: 6px 15px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 16px;
-      text-decoration: none;
-      transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
-  }
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+    transition: color 0.3s ease;
+}
 
-  .login-button:hover, .login-button:focus {
-      background-color: #4946f1;
-      color: white;
-      transform: scale(1.1);
-  }
+.search-bar button:hover, .search-bar button:focus {
+    color: #4946f1;
+}
 
+/* Nav Button (LOG IN) animation */
+nav button {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background: none;
+    border: 2px solid rgb(255, 255, 255);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 6px 15px;
+    border-radius: 20px;
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+}
+
+nav button:hover, nav button:focus {
+    background-color: #4946f1;
+    color: white;
+    transform: scale(1.1);
+}.login-button {
+    color: rgb(255, 255, 255);
+    background: none;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 6px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+}
+
+.login-button:hover, .login-button:focus {
+    background-color: #4946f1;
+    color: white;
+    transform: scale(1.1);
+}
 
   main {
       flex: 1;

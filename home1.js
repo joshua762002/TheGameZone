@@ -35,4 +35,12 @@ if (email === storedEmail && password === storedPass) {
     alert(`Welcome, ${email}!`);
     window.location.href = "home1.html";
   }
+  function logout() {
+    // Clear localStorage/sessionStorage or any login-related data
+    localStorage.removeItem('user'); // Or whatever key you're using
+    sessionStorage.clear(); // Optional: clear session storage
+  
+    // Redirect to homepage or login page
+    window.location.href = 'home.html';
+  }
   

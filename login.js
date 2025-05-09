@@ -39,12 +39,12 @@ login.addEventListener("click", (e) => {
 // Register new user
 signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const email = document.getElementById("signupEmail").value;
+  const email = document.getElementById("signupEmail").value.trim();
   const password = document.getElementById("signupPass").value;
 
-  // Check if fields are not empty
-  if (!email || !password) {
-    alert("Please fill in both email and password.");
+  // Validate email and password
+  if (!email || !email.includes("@") || !password) {
+    alert("Please enter a valid email (must include '@') and a password.");
     return;
   }
 
@@ -60,8 +60,14 @@ signupForm.addEventListener("submit", (e) => {
 // Login validation
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const email = document.getElementById("loginUser").value;
+  const email = document.getElementById("loginUser").value.trim();
   const password = document.getElementById("loginPass").value;
+
+  // Validate email format
+  if (!email.includes("@")) {
+    alert("Please enter a valid email address.");
+    return;
+  }
 
   // Retrieve stored credentials from localStorage
   const storedEmail = localStorage.getItem("userEmail");

@@ -74,10 +74,8 @@ function showPurchasePopup(game) {
     popup.classList.remove('show');
   }, 2500);
 }
-// SEARCH FUNCTIONALITY
-
-const searchInput = document.getElementById('searchInput');
-const searchButton = document.getElementById('searchButton');
+const searchInput = document.querySelector('.search-bar input');
+const searchButton = document.querySelector('.search-bar button');
 const shopContainer = document.querySelector('.shop-container'); // Where all shop-boxes are located
 
 function getAllGamesFromDOM() {
@@ -110,3 +108,4 @@ searchInput.addEventListener('keypress', (e) => {
     filterAndDisplayGames(searchTerm);
   }
 });
+

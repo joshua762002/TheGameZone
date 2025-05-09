@@ -26,6 +26,6 @@ document.querySelector(".shop-button").addEventListener("click", (e) => {
     localStorage.setItem('wishlistItem', JSON.stringify(item));
 
     // Redirect to wishlist page
-    window.location.href = "wishlist.html";
+    window.location.href = "home1.html";
   }
 
