@@ -74,4 +74,39 @@ function buyGame(button) {
       popup.classList.remove('show');
     }, 2500);
   }
-  
+  // SEARCH FUNCTIONALITY
+
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+const shopContainer = document.querySelector('.shop-container'); // Where all shop-boxes are located
+
+function getAllGamesFromDOM() {
+  const gameBoxes = document.querySelectorAll('.shop-box');
+  return Array.from(gameBoxes).map(box => ({
+    element: box,
+    title: box.querySelector('.game-title').textContent.toLowerCase()
+  }));
+}
+
+function filterAndDisplayGames(searchTerm) {
+  const allGames = getAllGamesFromDOM();
+  allGames.forEach(game => {
+    if (game.title.includes(searchTerm)) {
+      game.element.style.display = 'block';
+    } else {
+      game.element.style.display = 'none';
+    }
+  });
+}
+
+searchButton.addEventListener('click', () => {
+  const searchTerm = searchInput.value.toLowerCase().trim();
+  filterAndDisplayGames(searchTerm);
+});
+
+searchInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    filterAndDisplayGames(searchTerm);
+  }
+});

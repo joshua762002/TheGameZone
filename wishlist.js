@@ -80,3 +80,26 @@ function createWishlistItem(item) {
 
     return div;
 }
+const wishlistSearchInput = document.getElementById('wishlistSearchInput');
+const wishlistSearchButton = document.getElementById('wishlistSearchButton');
+
+function filterWishlistItems(searchTerm) {
+  const wishlistItems = document.querySelectorAll('.wishlist-item');
+  wishlistItems.forEach(item => {
+    const title = item.querySelector('.item-title').textContent.toLowerCase();
+    item.style.display = title.includes(searchTerm) ? 'block' : 'none';
+  });
+}
+
+wishlistSearchButton.addEventListener('click', () => {
+  const searchTerm = wishlistSearchInput.value.toLowerCase().trim();
+  filterWishlistItems(searchTerm);
+});
+
+wishlistSearchInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    const searchTerm = wishlistSearchInput.value.toLowerCase().trim();
+    filterWishlistItems(searchTerm);
+  }
+});
+
