@@ -454,28 +454,25 @@ main {
   }
 }
 
-  
-  /* Wishlist Toast Styling */
-.wishlist-toast {
+  .wishlist-toast {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
+  transform: translate(-50%, -50%);
   background-color: #0d6efd;
-  color: white;
-  padding: 18px 28px;
-  font-size: 17px;
-  font-weight: 600;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
   opacity: 0;
+  visibility: hidden;
   z-index: 9999;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  text-align: center;
-  pointer-events: none;
+  transition: opacity 0.4s ease, visibility 0.4s;
 }
 
 .wishlist-toast.show {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+  visibility: visible;
 }

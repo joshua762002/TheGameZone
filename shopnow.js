@@ -1,3 +1,4 @@
+// ADD TO WISHLIST FUNCTION
 function addToWishlist(button) {
   const shopBox = button.closest('.shop-box');
   const title = shopBox.querySelector('.game-title').innerText;
@@ -11,23 +12,23 @@ function addToWishlist(button) {
   const item = { id, title, image, genre, rating, price, age };
 
   let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-
   const exists = wishlist.some(product => product.id === item.id);
+
   if (!exists) {
     wishlist.push(item);
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
-    alert(`${title} added to your wishlist!`);
+    showToast(`${title} added to your wishlist!`);
   } else {
-    alert(`${title} is already in your wishlist.`);
+    showToast(`${title} is already in your wishlist.`);
   }
 }
 
+// BUY GAME FUNCTION
 function buyGame(button) {
   const card = button.closest('.shop-box');
   button.disabled = true;
   button.innerText = "Processing...";
 
-  // Get today's date
   const today = new Date();
   const formattedDate = today.toLocaleDateString('en-PH', {
     year: 'numeric',
@@ -35,7 +36,6 @@ function buyGame(button) {
     day: 'numeric'
   });
 
-  // Create the game object for the purchased item
   const game = {
     id: Date.now(),
     image: card.querySelector('.game-image').src,
@@ -47,20 +47,18 @@ function buyGame(button) {
     date: formattedDate
   };
 
-  // Retrieve existing purchases and add the new game
   let purchases = JSON.parse(localStorage.getItem('purchased')) || [];
   purchases.push(game);
   localStorage.setItem('purchased', JSON.stringify(purchases));
 
-  // Show the purchase confirmation popup
   showPurchasePopup(game);
 
-  // Redirect to the purchased games page after 3 seconds
   setTimeout(() => {
     window.location.href = 'purchasedgames.html';
   }, 3000);
 }
 
+// PURCHASE POPUP FUNCTION
 function showPurchasePopup(game) {
   const popup = document.getElementById('purchase-popup');
   document.getElementById('popup-image').src = game.image;
@@ -74,9 +72,10 @@ function showPurchasePopup(game) {
     popup.classList.remove('show');
   }, 2500);
 }
+
+// SEARCH FUNCTIONALITY
 const searchInput = document.querySelector('.search-bar input');
 const searchButton = document.querySelector('.search-bar button');
-const shopContainer = document.querySelector('.shop-container'); // Where all shop-boxes are located
 
 function getAllGamesFromDOM() {
   const gameBoxes = document.querySelectorAll('.shop-box');
@@ -89,11 +88,7 @@ function getAllGamesFromDOM() {
 function filterAndDisplayGames(searchTerm) {
   const allGames = getAllGamesFromDOM();
   allGames.forEach(game => {
-    if (game.title.includes(searchTerm)) {
-      game.element.style.display = 'block';
-    } else {
-      game.element.style.display = 'none';
-    }
+    game.element.style.display = game.title.includes(searchTerm) ? 'block' : 'none';
   });
 }
 
@@ -109,6 +104,7 @@ searchInput.addEventListener('keypress', (e) => {
   }
 });
 
+// ✅ TOAST FUNCTION WITH ANIMATION
 function showToast(message) {
   const toast = document.createElement('div');
   toast.className = 'wishlist-toast';
@@ -116,7 +112,9 @@ function showToast(message) {
   document.body.appendChild(toast);
 
   // Trigger animation
-  setTimeout(() => toast.classList.add('show'), 100);
+  setTimeout(() => {
+    toast.classList.add('show');
+  }, 100);
 
   // Auto remove after 2.5 seconds
   setTimeout(() => {
