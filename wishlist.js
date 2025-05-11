@@ -39,7 +39,7 @@ function removeFromWishlist(id, element) {
 }
 
 /**
- * Add item to cart without redirecting.
+ * Add item to cart and remove it from wishlist.
  */
 function addToCart(item) {
     // Parse price if it's a string with ₱
@@ -47,11 +47,23 @@ function addToCart(item) {
         item.price = parseFloat(item.price.replace(/[₱,]/g, '')) || 0;
     }
 
+    // Add item to cart
     const cart = getLocalStorage('cart');
     cart.push(item);
     setLocalStorage('cart', cart);
 
-    alert(`${item.title} added to cart!`);
+    // Remove item from wishlist in storage
+    const updatedWishlist = getLocalStorage('wishlist').filter(wishItem => wishItem.id !== item.id);
+    setLocalStorage('wishlist', updatedWishlist);
+
+    // Remove item visually from DOM
+    const itemElement = document.querySelector(`.wishlist-item[data-id="${item.id}"]`);
+    if (itemElement) {
+        itemElement.classList.add('fade-out');
+        setTimeout(() => itemElement.remove(), 400); // match with CSS transition
+    }
+
+    showAddToCartMessage(item.title);
 }
 
 /**
@@ -80,26 +92,45 @@ function createWishlistItem(item) {
 
     return div;
 }
+
+// Wishlist Search Feature
 const wishlistSearchInput = document.getElementById('wishlistSearchInput');
 const wishlistSearchButton = document.getElementById('wishlistSearchButton');
 
 function filterWishlistItems(searchTerm) {
-  const wishlistItems = document.querySelectorAll('.wishlist-item');
-  wishlistItems.forEach(item => {
-    const title = item.querySelector('.item-title').textContent.toLowerCase();
-    item.style.display = title.includes(searchTerm) ? 'block' : 'none';
-  });
+    const wishlistItems = document.querySelectorAll('.wishlist-item');
+    wishlistItems.forEach(item => {
+        const title = item.querySelector('.item-title').textContent.toLowerCase();
+        item.style.display = title.includes(searchTerm) ? 'block' : 'none';
+    });
 }
 
 wishlistSearchButton.addEventListener('click', () => {
-  const searchTerm = wishlistSearchInput.value.toLowerCase().trim();
-  filterWishlistItems(searchTerm);
+    const searchTerm = wishlistSearchInput.value.toLowerCase().trim();
+    filterWishlistItems(searchTerm);
 });
 
 wishlistSearchInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    const searchTerm = wishlistSearchInput.value.toLowerCase().trim();
-    filterWishlistItems(searchTerm);
-  }
+    if (e.key === 'Enter') {
+        const searchTerm = wishlistSearchInput.value.toLowerCase().trim();
+        filterWishlistItems(searchTerm);
+    }
 });
 
+/**
+ * Show animated message in the center of the screen
+ */
+function showAddToCartMessage(title) {
+    const msg = document.createElement('div');
+    msg.className = 'cart-msg';
+    msg.textContent = `🛒 ${title} added to cart!`;
+    document.body.appendChild(msg);
+
+    setTimeout(() => {
+        msg.classList.add('cart-msg-hide');
+    }, 100); // start fade out soon
+
+    setTimeout(() => {
+        msg.remove();
+    }, 1500); // remove from DOM
+}

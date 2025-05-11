@@ -109,3 +109,18 @@ searchInput.addEventListener('keypress', (e) => {
   }
 });
 
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.className = 'wishlist-toast';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  // Trigger animation
+  setTimeout(() => toast.classList.add('show'), 100);
+
+  // Auto remove after 2.5 seconds
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 500);
+  }, 2500);
+}
