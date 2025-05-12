@@ -104,40 +104,6 @@
         color: #4946f1;
     }
 
-    /* Nav Button (LOG IN) animation */
-    nav button {
-        text-decoration: none;
-        color: rgb(255, 255, 255);
-        background: none;
-        border: 2px solid rgb(255, 255, 255);
-        font-size: 16px;
-        cursor: pointer;
-        padding: 6px 15px;
-        border-radius: 20px;
-        transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
-    }
-
-    nav button:hover, nav button:focus {
-        background-color: #4946f1;
-        color: white;
-        transform: scale(1.1);
-    }.login-button {
-        color: rgb(255, 255, 255);
-        background: none;
-        border: 2px solid rgb(255, 255, 255);
-        padding: 6px 15px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 16px;
-        text-decoration: none;
-        transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
-    }
-
-    .login-button:hover, .login-button:focus {
-        background-color: #4946f1;
-        color: white;
-        transform: scale(1.1);
-    }
 
 
     main {
@@ -145,7 +111,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center;    
         padding: 50px 20px;
         background-color: transparent;
     }
@@ -337,5 +303,185 @@ footer {
     text-align: center;
   }
 }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #22222200;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.logo img {
+  height: 50px;
+}
+
+/* Hamburger Icon */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+}
+/* Navigation */
+.navbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: background 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #44444400;
+  border-radius: 5px;
+}
+
+.login-button {
+  background-color: #f39d1200;
+  border-radius: 5px;
+  padding: 8px 12px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-bar input {
+  padding: 6px;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+}
+
+.search-bar button {
+  padding: 6px 10px;
+  background-color: #f39d1200;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    display: none;
+    background-color: #222;
+    padding: 10px 0;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .search-bar {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+}
+
+.center-container,
+.center-containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Individual heights */
+.center-container {
+  height: auto;
+  margin-top: 40px;
+}
+
+.center-containers {
+  height: auto;
+  padding: 30px 15px;
+}
+
+/* Responsive Text Styling */
+h1 {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  font-weight: 500;
+  font-size: 4rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  color: #cbd6f7;
+  font-weight: 400;
+  font-size: 1.5rem;
+  max-width: 900px;
+  line-height: 1.6;
+}
+
+/* ✅ Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+    padding: 0 10px;
+    line-height: 1.5;
+  }
+}
 
   
+  .see-more {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: 3833b4;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.see-more:hover {
+  background-color: 3833b4;
+  box-shadow: 0 6px 12px rgba(0, 86, 179, 0.4);
+  transform: translateY(-2px);
+}

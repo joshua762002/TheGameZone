@@ -11,50 +11,117 @@ body {
     flex-direction: column;
 }
 
-h1 {
-    text-align: center;
-    font-weight: 00; /* Slightly less bold for a professional look */
-    color: #fff; /* Using hex color for better consistency */
-    font-size: 4.5rem; /* Adjusting font size for better readability */
-    line-height: 1.4; /* Adjusts line spacing for better legibility */
-    margin-top: 350px; /* Adds space at the top */
-    margin-bottom: 20px; /* Adds space at the bottom */
-    font-family: 'Roboto', sans-serif; /* Modern sans-serif font for clean and professional look */
-    letter-spacing: 1px; /* Adds some space between letters for readability */
-    text-transform: capitalize; /* Capitalizes the first letter of each word for a neat appearance */
-}
-h4 {
-    text-align: center;
-    font-weight: 600; /* Slightly less bold for a professional look */
-    color: #cbd6f7; /* Using hex color for better consistency */
-    font-size: 2.0rem; /* Adjusting font size for better readability */
-    line-height: 1.4; /* Adjusts line spacing for better legibility */
-    margin-top: 40px; /* Adds space at the top */
-    margin-bottom: 40px; /* Adds space at the bottom */
-    font-family: 'Roboto', sans-serif; /* Modern sans-serif font for clean and professional look */
-    letter-spacing: 3px; /* Adds some space between letters for readability */
-    text-transform: capitalize; /* Capitalizes the first letter of each word for a neat appearance */
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.center-container {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+}
+
+header {
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #444;
+  border-radius: 5px;
+}
+
+.login-button {
+  background-color: #f39c12;
+  border-radius: 5px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-bar input {
+  padding: 6px;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+}
+
+.search-bar button {
+  padding: 6px 10px;
+  background-color: #f39c12;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ✅ Mobile Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    display: none;
+    background-color: #222;
+    padding: 10px 0;
+  }
+
+  .navbar.active {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20vh; /* Adjust this if needed */
-    text-align: center;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
 }
-.center-containers {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh; /* Adjust this if needed */
-    text-align: center;
-}
 
 
-
-  
-  
 
 header, footer {
     background-color: transparent;
@@ -483,7 +550,215 @@ main {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.logo img {
+  height: 50px;
+}
+
+/* Hamburger Icon */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: background 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #444;
+  border-radius: 5px;
+}
+
+.login-button {
+  background-color: #f39c12;
+  border-radius: 5px;
+  padding: 8px 12px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-bar input {
+  padding: 6px;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+}
+
+.search-bar button {
+  padding: 6px 10px;
+  background-color: #f39c12;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    display: none;
+    background-color: #222;
+    padding: 10px 0;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .search-bar {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+}
+
+.center-container,
+.center-containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Individual heights */
+.center-container {
+  height: auto;
+  margin-top: 40px;
+}
+
+.center-containers {
+  height: auto;
+  padding: 30px 15px;
+}
+
+/* Responsive Text Styling */
+h1 {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  font-weight: 500;
+  font-size: 4rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  color: #cbd6f7;
+  font-weight: 400;
+  font-size: 1.5rem;
+  max-width: 900px;
+  line-height: 1.6;
+}
+
+/* ✅ Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+    padding: 0 10px;
+    line-height: 1.5;
+  }
+}
 
   
+/* Basic Layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#genre-nav {
+    background-color: #76bfdb00;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#genre-nav .category {
+    background-color: #55555579;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#genre-nav .category:hover {
+    background-color: #888;
+}
+
+#games-list .game {
+    display: none; /* Hide all games initially */
+    margin: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#games-list .game h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+#games-list .game p {
+    font-size: 14px;
+}
 

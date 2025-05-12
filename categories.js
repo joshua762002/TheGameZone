@@ -117,3 +117,54 @@ searchInput.addEventListener('keypress', (e) => {
     filterAndDisplayGames(searchTerm);
   }
 });
+// Toggle navbar for mobile
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById('menu-toggle');
+  const navbar = document.getElementById('navbar');
+
+  toggle.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+  });
+});
+// Function to filter games based on genre
+function filterGames(genre) {
+    const games = document.querySelectorAll('.game');
+    
+    // Make sure we're only filtering based on the allowed genres
+    if (['action', 'adventure', 'horror', 'rpg'].includes(genre)) {
+        games.forEach(game => {
+            // If the game has the selected genre as a class, display it
+            if (game.classList.contains(genre)) {
+                game.style.display = 'block';
+            } else {
+                game.style.display = 'none';
+            }
+        });
+    } else {
+        // If no genre is selected, display all games (optional)
+        games.forEach(game => {
+            game.style.display = 'block';
+        });
+    }
+}
+
+// Add event listeners for each genre button
+categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const genre = button.getAttribute('data-genre');
+        filterGames(genre);
+    });
+});
+// Show all games if no genre is selected
+function showAllGames() {
+    const games = document.querySelectorAll('.game');
+    games.forEach(game => {
+        game.style.display = 'block';
+    });
+}
+
+// Add event listener for the "All Games" button (if you have it)
+const allGamesButton = document.querySelector('.category[data-genre="all"]');
+if (allGamesButton) {
+    allGamesButton.addEventListener('click', showAllGames);
+}

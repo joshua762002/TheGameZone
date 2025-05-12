@@ -134,3 +134,15 @@ function showAddToCartMessage(title) {
         msg.remove();
     }, 1500); // remove from DOM
 }
+  // Toggle menu
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    document.getElementById('navbar').classList.toggle('active');
+  });
+
+  // Close menu when a nav link is clicked (on mobile)
+  document.querySelectorAll('.navbar a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.getElementById('navbar').classList.remove('active');
+    });
+  });
+

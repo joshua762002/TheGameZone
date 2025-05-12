@@ -43,4 +43,12 @@ if (email === storedEmail && password === storedPass) {
     // Redirect to homepage or login page
     window.location.href = 'index.html';
   }
-  
+// Toggle navbar for mobile
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById('menu-toggle');
+  const navbar = document.getElementById('navbar');
+
+  toggle.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+  });
+});
