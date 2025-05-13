@@ -342,7 +342,7 @@ shop-button {
     display: inline-block;
   }
   .footer {
-  background-color: #4253f021;
+  background-color: #4253f00a;
   color: #f1f1f1;
   padding: 40px 20px 10px;
   font-family: 'Segoe UI', sans-serif;
@@ -391,7 +391,7 @@ shop-button {
   padding-top: 20px;
   border-top: 1px solid #333;
   font-size: 14px;
-  color: #888;
+  color: #88888800;
 }
 
 @media (max-width: 768px) {

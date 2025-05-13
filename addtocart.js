@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   // ================= ADD TO CART FROM WISHLIST ===================
   const addToCartButtons = document.querySelectorAll('.add-to-cart');
@@ -71,19 +70,96 @@ document.addEventListener('DOMContentLoaded', () => {
 
     totalEl.textContent = `Total: ₱${total.toLocaleString('en-PH', { minimumFractionDigits: 2 })}`;
 
+    // ✅ Updated Checkout Functionality
     checkoutBtn.addEventListener('click', () => {
-      alert("✅ Thank you for your purchase!");
-      localStorage.removeItem('cart');
-      location.reload();
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if (!cart.length) return alert("Cart is empty.");
+
+      cart.forEach(game => showPaymentMethodPopup(game));
     });
 
     continueBtn.addEventListener('click', () => {
-      window.location.href = 'purchased.html'; // Update to your products page
+      window.location.href = 'purchased.html'; // Update this if needed
     });
+  }
+
+  // Show Payment Method Popup
+  function showPaymentMethodPopup(game) {
+    const paymentPopup = document.getElementById('payment-popup');
+    const phoneInput = document.getElementById('phone-number');
+    const confirmBtn = document.getElementById('confirm-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    
+    paymentPopup.classList.add('show');  // Show the popup
+    phoneInput.focus();
+
+    cancelBtn.addEventListener('click', () => {
+      paymentPopup.classList.remove('show');
+      phoneInput.value = '';
+    });
+
+    confirmBtn.addEventListener('click', () => {
+      const phone = phoneInput.value.trim();
+      if (!validatePhone(phone)) {
+        alert("📱 Please enter a valid phone number.");
+        return;
+      }
+
+      handlePayment(phone, game);
+    });
+
+    // Handle Gcash and Sim Card Payment
+    document.querySelector('.gcash-btn')?.addEventListener('click', () => {
+      const phone = phoneInput.value.trim();
+      if (!validatePhone(phone)) {
+        alert("📱 Please enter a valid phone number.");
+        return;
+      }
+      handlePayment(phone, game, 'GCash');
+    });
+
+    document.querySelector('.simcard-btn')?.addEventListener('click', () => {
+      const phone = phoneInput.value.trim();
+      if (!validatePhone(phone)) {
+        alert("📱 Please enter a valid phone number.");
+        return;
+      }
+      handlePayment(phone, game, 'Sim Card');
+    });
+  }
+
+  function handlePayment(phone, game, method) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingPurchases = JSON.parse(localStorage.getItem('purchased')) || [];
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-PH', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+
+    const purchasedItems = cart.map(item => ({
+      ...item,
+      date: formattedDate,
+      phone: phone,
+      method: method || 'Cash'
+    }));
+
+    localStorage.setItem('purchased', JSON.stringify([...existingPurchases, ...purchasedItems]));
+    localStorage.removeItem('cart');
+
+    alert(`✅ Payment successful via ${method || 'Cash'}!`);
+    setTimeout(() => {
+      window.location.href = 'purchasedgames.html';
+    }, 1500);
+  }
+
+  // Validate Phone Number
+  function validatePhone(phone) {
+    const phonePattern = /^[0-9]{11}$/;  // Basic validation for 11-digit number
+    return phonePattern.test(phone);
   }
 });
 
- // Toggle navbar for mobile
+// ================= TOGGLE NAVBAR FOR MOBILE ====================
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.getElementById('menu-toggle');
   const navbar = document.getElementById('navbar');
@@ -92,3 +168,31 @@ document.addEventListener("DOMContentLoaded", function () {
     navbar.classList.toggle('active');
   });
 });
+
+// 🎮 Genre Filtering
+function filterGames(genre) {
+  const games = document.querySelectorAll('.game');
+  if (['action', 'adventure', 'horror', 'rpg'].includes(genre)) {
+    games.forEach(game => {
+      game.style.display = game.classList.contains(genre) ? 'block' : 'none';
+    });
+  } else {
+    games.forEach(game => game.style.display = 'block');
+  }
+}
+
+document.querySelectorAll('.category').forEach(button => {
+  button.addEventListener('click', () => {
+    const genre = button.getAttribute('data-genre');
+    filterGames(genre);
+  });
+});
+
+const allGamesButton = document.querySelector('.category[data-genre="all"]');
+if (allGamesButton) {
+  allGamesButton.addEventListener('click', () => {
+    document.querySelectorAll('.game').forEach(game => {
+      game.style.display = 'block';
+    });
+  });
+};

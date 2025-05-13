@@ -720,7 +720,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #0f0c0c;
 }
 
 #genre-nav {
@@ -762,3 +762,68 @@ body {
     font-size: 14px;
 }
 
+.payment-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(235, 226, 226, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.payment-popup-overlay.show {
+  opacity: 1;
+}
+
+.payment-popup {
+  background: #15bce6a4;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  animation: slideUp 0.4s ease;
+}
+
+.payment-popup input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  color: #000;
+}
+
+.payment-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cancel-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cancel-btn {
+  background: #ff4444;
+  color: #fff;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

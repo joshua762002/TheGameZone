@@ -1,29 +1,43 @@
-// ADD TO WISHLIST FUNCTION
+// ❤️ Add to Wishlist
 function addToWishlist(button) {
   const shopBox = button.closest('.shop-box');
-  const title = shopBox.querySelector('.game-title').innerText;
-  const image = shopBox.querySelector('img').getAttribute('src');
-  const genre = shopBox.querySelector('.game-genre').innerText;
-  const rating = shopBox.querySelector('.rating').innerText;
-  const price = shopBox.querySelector('.price').innerText;
-  const age = shopBox.querySelector('.age-limit').innerText;
-  const id = title.toLowerCase().replace(/\s+/g, '-');
+  const item = {
+    id: shopBox.querySelector('.game-title').innerText.toLowerCase().replace(/\s+/g, '-'),
+    title: shopBox.querySelector('.game-title').innerText,
+    image: shopBox.querySelector('img').getAttribute('src'),
+    genre: shopBox.querySelector('.game-genre').innerText,
+    rating: shopBox.querySelector('.rating').innerText,
+    price: shopBox.querySelector('.price').innerText,
+    age: shopBox.querySelector('.age-limit').innerText
+  };
 
-  const item = { id, title, image, genre, rating, price, age };
-
-  let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+  const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
   const exists = wishlist.some(product => product.id === item.id);
 
   if (!exists) {
     wishlist.push(item);
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
-    showToast(`${title} added to your wishlist!`);
+    showToast(`${item.title} added to your wishlist!`);
   } else {
-    showToast(`${title} is already in your wishlist.`);
+    showToast(`${item.title} is already in your wishlist.`);
   }
 }
 
-// BUY GAME FUNCTION
+// 🔔 Toast Notification
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.className = 'wishlist-toast';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.classList.add('show'), 100);
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 500);
+  }, 2500);
+}
+
+// 🛒 Buy Game
 function buyGame(button) {
   const card = button.closest('.shop-box');
   button.disabled = true;
@@ -47,9 +61,20 @@ function buyGame(button) {
     date: formattedDate
   };
 
-  let purchases = JSON.parse(localStorage.getItem('purchased')) || [];
+  showPaymentMethodPopup(game);
+}
+
+// ✅ Complete Purchase
+function completePurchase(game, method) {
+  const purchases = JSON.parse(localStorage.getItem('purchased')) || [];
   purchases.push(game);
   localStorage.setItem('purchased', JSON.stringify(purchases));
+
+  const paymentPopup = document.querySelector('.payment-popup-overlay');
+  if (paymentPopup) {
+    paymentPopup.classList.remove('show');
+    setTimeout(() => paymentPopup.remove(), 500);
+  }
 
   showPurchasePopup(game);
 
@@ -58,7 +83,7 @@ function buyGame(button) {
   }, 3000);
 }
 
-// PURCHASE POPUP FUNCTION
+// 💬 Purchase Confirmation Popup
 function showPurchasePopup(game) {
   const popup = document.getElementById('purchase-popup');
   document.getElementById('popup-image').src = game.image;
@@ -67,27 +92,69 @@ function showPurchasePopup(game) {
   document.getElementById('popup-date').textContent = `📅 Purchased on: ${game.date}`;
 
   popup.classList.add('show');
-
-  setTimeout(() => {
-    popup.classList.remove('show');
-  }, 2500);
+  setTimeout(() => popup.classList.remove('show'), 2500);
 }
 
-// SEARCH FUNCTIONALITY
-const searchInput = document.querySelector('.search-bar input');
-const searchButton = document.querySelector('.search-bar button');
+// 💳 Payment Method Popup with Animation
+function showPaymentMethodPopup(game) {
+  const paymentPopup = document.createElement('div');
+  paymentPopup.className = 'payment-popup-overlay';
+  paymentPopup.innerHTML = `
+    <div class="payment-popup">
+      <h2>Select Payment Method</h2>
+      <p><strong>${game.title}</strong></p>
+      <p>${game.price}</p>
+      <input type="tel" id="phone-number" placeholder="Enter Phone Number" maxlength="11" />
+      <div class="payment-buttons">
+        <button class="gcash-btn">Pay with GCash</button>
+        <button class="simcard-btn">Pay with Sim Card</button>
+      </div>
+      <div class="cancel-container">
+        <button class="cancel-btn">Cancel</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(paymentPopup);
+  setTimeout(() => paymentPopup.classList.add('show'), 100);
+
+  const phoneInput = paymentPopup.querySelector('#phone-number');
+
+  const handlePayment = method => {
+    if (validatePhone(phoneInput.value)) {
+      completePurchase({ ...game, phone: phoneInput.value }, method);
+    } else {
+      alert('Please enter a valid phone number.');
+    }
+  };
+
+  paymentPopup.querySelector('.gcash-btn').onclick = () => handlePayment('GCash');
+  paymentPopup.querySelector('.simcard-btn').onclick = () => handlePayment('Sim Card');
+
+  paymentPopup.querySelector('.cancel-btn').onclick = () => {
+    paymentPopup.classList.remove('show');
+    setTimeout(() => paymentPopup.remove(), 500);
+  };
+}
+
+// 📱 Validate Phone Number
+function validatePhone(phone) {
+  return /^\d{11}$/.test(phone);
+}
+
+// 🔍 Search Functionality
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
 
 function getAllGamesFromDOM() {
-  const gameBoxes = document.querySelectorAll('.shop-box');
-  return Array.from(gameBoxes).map(box => ({
+  return Array.from(document.querySelectorAll('.shop-box')).map(box => ({
     element: box,
     title: box.querySelector('.game-title').textContent.toLowerCase()
   }));
 }
 
 function filterAndDisplayGames(searchTerm) {
-  const allGames = getAllGamesFromDOM();
-  allGames.forEach(game => {
+  getAllGamesFromDOM().forEach(game => {
     game.element.style.display = game.title.includes(searchTerm) ? 'block' : 'none';
   });
 }
@@ -104,30 +171,39 @@ searchInput.addEventListener('keypress', (e) => {
   }
 });
 
-// ✅ TOAST FUNCTION WITH ANIMATION
-function showToast(message) {
-  const toast = document.createElement('div');
-  toast.className = 'wishlist-toast';
-  toast.textContent = message;
-  document.body.appendChild(toast);
-
-  // Trigger animation
-  setTimeout(() => {
-    toast.classList.add('show');
-  }, 100);
-
-  // Auto remove after 2.5 seconds
-  setTimeout(() => {
-    toast.classList.remove('show');
-    setTimeout(() => toast.remove(), 500);
-  }, 2500);
-}
-// Toggle navbar for mobile
-document.addEventListener("DOMContentLoaded", function () {
+// 📱 Navbar Toggle
+document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById('menu-toggle');
   const navbar = document.getElementById('navbar');
-
   toggle.addEventListener('click', () => {
     navbar.classList.toggle('active');
   });
 });
+
+// 🎮 Genre Filtering
+function filterGames(genre) {
+  const games = document.querySelectorAll('.game');
+  if (['action', 'adventure', 'horror', 'rpg'].includes(genre)) {
+    games.forEach(game => {
+      game.style.display = game.classList.contains(genre) ? 'block' : 'none';
+    });
+  } else {
+    games.forEach(game => game.style.display = 'block');
+  }
+}
+
+document.querySelectorAll('.category').forEach(button => {
+  button.addEventListener('click', () => {
+    const genre = button.getAttribute('data-genre');
+    filterGames(genre);
+  });
+});
+
+const allGamesButton = document.querySelector('.category[data-genre="all"]');
+if (allGamesButton) {
+  allGamesButton.addEventListener('click', () => {
+    document.querySelectorAll('.game').forEach(game => {
+      game.style.display = 'block';
+    });
+  });
+};
